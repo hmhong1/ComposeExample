@@ -7,13 +7,16 @@ import androidx.compose.animation.animateColorAsState
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Divider
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.*
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
@@ -54,12 +57,18 @@ fun Greeting(name: String) {
 fun DefaultPreview() {
     MyApp {
         Column{
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                Text("1Android row1")
+                Text("2Android row2")
+            }
+
             Greeting("Android1")
 
             Image(painter = painterResource(id = R.drawable.image01),
                 contentDescription = null,
-                modifier = Modifier.padding(2.dp)
-                                    .clip(shape = RoundedCornerShape(10.dp)),
+                modifier = Modifier
+                    .padding(2.dp)
+                    .clip(shape = RoundedCornerShape(10.dp)),
                 contentScale = ContentScale.Crop)
 
             MyScreenContent()
