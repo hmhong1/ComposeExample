@@ -7,10 +7,8 @@ import androidx.compose.animation.animateColorAsState
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Divider
 import androidx.compose.material.Surface
@@ -59,7 +57,7 @@ fun DefaultPreview() {
         Column{
             Row(verticalAlignment = Alignment.CenterVertically) {
                 Text("1Android row1")
-                Text("2Android row2")
+                Text("2Android row2", modifier = Modifier.padding(10.dp, 0.dp, 0.dp, 0.dp))
             }
 
             Greeting("Android1")
@@ -72,6 +70,13 @@ fun DefaultPreview() {
                 contentScale = ContentScale.Crop)
 
             MyScreenContent()
+
+            //list
+            LazyColumn(contentPadding = PaddingValues(horizontal = 15.dp, vertical = 10.dp)) {
+                items(7) { index ->
+                    Text(text = "item : $index", modifier = Modifier.padding(3.dp))
+                }
+            }
         }
     }
 }
